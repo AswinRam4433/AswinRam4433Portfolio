@@ -10,8 +10,7 @@ Available commands:
     `,
     contact: `
 You can reach me at:
-- <a href="mailto:aswin.ram4433@gmail.com">aswin.ram4433@gmail.com</a>
-- <a href="https://www.linkedin.com/in/aswin-r-5b2288229/" target="_blank">LinkedIn</a>
+- <a href="www.linkedin.com/in/aswinramanathan" target="_blank">LinkedIn</a>
 - <a href="https://github.com/AswinRam4433" target="_blank">GitHub</a>
     `,
 };
