@@ -1,0 +1,231 @@
+body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 20px;
+}
+.big-font {
+    font-size: 1.45em;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.theme-switch-wrapper {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+}
+
+input:checked + .slider {
+    background-color: #0F0;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Light Mode */
+body.light-mode {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+body.light-mode .container {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+body.light-mode header h1,
+body.light-mode header p,
+body.light-mode h2,
+body.light-mode .prompt-static::before,
+body.light-mode #terminal,
+body.light-mode .prompt::before,
+body.light-mode #input,
+body.light-mode .command,
+body.light-mode .response {
+    color: #333;
+}
+
+body.light-mode section {
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+body.light-mode h3 {
+    color: #007bff;
+}
+
+body.light-mode a {
+    color: #007bff;
+}
+
+body.light-mode #terminal {
+    border: 2px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+body.light-mode #terminal img {
+    filter: none;
+}
+
+body.light-mode input:checked + .slider {
+    background-color: #28a745;
+}
+
+
+header h1 {
+    font-size: 3em;
+    color: #0F0;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #0F0;
+}
+
+section {
+    margin-bottom: 30px;
+    border: 1px solid #0F0;
+    padding: 20px;
+    background-color: #000;
+}
+
+h2 {
+    color: #0F0;
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
+.prompt-static::before {
+    content: 'guest@aswin.dev:~$ ';
+    color: #0F0;
+}
+
+.job, .project {
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #0FF;
+    margin-bottom: 5px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+#terminal {
+    border: 2px solid #0F0;
+    padding: 10px;
+    height: 200px;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    background-color: #000;
+}
+
+#terminal::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+
+#output {
+    white-space: pre-wrap;
+}
+
+.input-line {
+    display: flex;
+}
+
+.prompt::before {
+    content: 'guest@aswin.dev:~$ ';
+    color: #0F0;
+}
+
+#input {
+    background-color: transparent;
+    border: none;
+    color: #0F0;
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+    outline: none;
+}
+
+.command {
+    color: #0F0;
+}
+
+.response {
+    color: #0F0;
+}
+
+a {
+    color: #0FF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#terminal img {
+    max-width: 150px;
+    filter: grayscale(100%) contrast(200%) brightness(1.5) sepia(100%) hue-rotate(50deg);
+}
