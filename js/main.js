@@ -1,47 +1,28 @@
-const input = document.getElementById('input');
-const output = document.getElementById('output');
-const terminal = document.getElementById('terminal');
+/* ── Mobile nav toggle ── */
+const navToggle = document.getElementById('nav-toggle');
+const navLinks  = document.getElementById('nav-links');
 
-const commands = {
-    help: `
-Available commands:
-  <span class="command">contact</span>   - Display my contact information
-  <span class="command">clear</span>     - Clear the terminal
-    `,
-    contact: `
-You can reach me at:
-- <a href="www.linkedin.com/in/aswinramanathan" target="_blank">LinkedIn</a>
-- <a href="https://github.com/AswinRam4433" target="_blank">GitHub</a>
-    `,
-};
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
 
-function executeCommand(command) {
-    output.innerHTML += `<div class="input-line"><span class="prompt"></span><span class="command">${command}</span></div>`;
-    if (command === 'clear') {
-        output.innerHTML = '';
-    } else if (commands[command]) {
-        output.innerHTML += `<div class="response">${commands[command]}</div>`;
-    } else {
-        output.innerHTML += `<div class="response">Command not found: ${command}. Type 'help' for a list of commands.</div>`;
-    }
-    terminal.scrollTop = terminal.scrollHeight;
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
 }
 
-input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-        const command = input.value.trim().toLowerCase();
-        if (command) {
-            executeCommand(command);
-        }
-        input.value = '';
-    }
-});
+/* ── Scroll-reveal (Intersection Observer) ── */
+const revealObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+);
 
-window.onload = () => {
-    executeCommand('help');
-};
-
-const themeToggle = document.getElementById('checkbox');
-themeToggle.addEventListener('change', () => {
-    document.body.classList.toggle('light-mode');
-});
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
