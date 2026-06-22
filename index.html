@@ -1,260 +1,392 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aswin Ramanathan</title>
-  <meta name="description" content="Software Development Engineer at Visa. Building distributed payment systems and GenAI tooling." />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aswin Ramanathan</title>
+    <meta
+      name="description"
+      content="Software Development Engineer at Visa. Building distributed payment systems and GenAI tooling."
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" type="image/png" href="bazinga.png" />
-</head>
-<body>
-
-  <!-- ── NAV ──────────────────────────────────────── -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo">Aswin Ramanathan</a>
-      <div class="nav-links" id="nav-links">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="blog.html">Blog</a>
-        <a href="#contact" class="nav-cta">Get in touch</a>
-      </div>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <main>
-
-    <!-- ── HERO ─────────────────────────────────────── -->
-    <section class="hero">
-      <div class="hero-content">
-        <p class="hero-label">Software Development Engineer</p>
-        <h1 class="hero-name">Aswin<br>Ramanathan</h1>
-        <p class="hero-bio">
-          I build scalable distributed systems at Visa — currently working on Open VisaNet,
-          Go-based authorization infrastructure, and GenAI tooling that makes engineers faster.
-        </p>
-        <div class="hero-links">
-          <a href="#experience" class="btn btn-primary">View Work</a>
-          <a href="https://github.com/AswinRam4433" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
-          <a href="https://www.linkedin.com/in/aswinramanathan" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/png" href="bazinga.png" />
+  </head>
+  <body>
+    <!-- ── NAV ──────────────────────────────────────── -->
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo">Aswin Ramanathan</a>
+        <div class="nav-links" id="nav-links">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="blog.html">Blog</a>
+          <a href="#contact" class="nav-cta">Get in touch</a>
         </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-    </section>
+    </nav>
 
-    <!-- ── ABOUT ─────────────────────────────────────── -->
-    <section id="about" class="section section-alt">
-      <div class="section-inner section-inner--mid">
-        <span class="section-label reveal">About</span>
-        <div class="about-content">
-          <p class="reveal">
-            I'm a Software Development Engineer at <strong>Visa Inc.</strong> in Bengaluru, contributing to
-            Open VisaNet — Visa's next-generation payment processing platform. My work involves
-            designing and building authorization features in Go that achieve functional parity
-            with decades-old mainframe systems.
+    <main>
+      <!-- ── HERO ─────────────────────────────────────── -->
+      <section class="hero">
+        <div class="hero-content">
+          <p class="hero-label">Software Development Engineer</p>
+          <h1 class="hero-name">Aswin<br />Ramanathan</h1>
+          <p class="hero-bio">
+            I build scalable distributed systems at Visa — currently working on
+            Open VisaNet, a Go-based new-age alternative to legacy mainframe
+            systems. I also build GenAI tools that help engineers push out
+            quality code faster.
           </p>
-          <p class="reveal">
-            I graduated from <strong>College of Engineering, Guindy (Anna University)</strong> in 2024
-            with a degree in Information Technology and a CGPA of 9.22/10. Outside of production
-            systems, I spend time on applied AI — RAG pipelines, fine-tuning, and tools that
-            reduce the gap between raw LLM capability and real engineering workflows.
-          </p>
-          <p class="reveal">
-            I also write occasionally about the things I'm learning —
-            <a href="blog.html" style="color: var(--accent); border-bottom: 1px solid var(--accent-pale);">check out the blog</a>.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── EXPERIENCE ────────────────────────────────── -->
-    <section id="experience" class="section">
-      <div class="section-inner">
-        <span class="section-label reveal">Experience</span>
-        <div class="timeline">
-
-          <div class="timeline-item reveal">
-            <div class="timeline-marker">
-              <div class="timeline-dot"></div>
-            </div>
-            <div class="timeline-body">
-              <span class="timeline-date">Jun 2024 – Present</span>
-              <p class="timeline-role">Software Development Engineer</p>
-              <span class="timeline-company">Visa Inc. &middot; Bengaluru</span>
-              <ul>
-                <li>Develop core authorization features for Open VisaNet (OVN), Visa's next-generation payment processing platform — including velocity fraud prevention and financial adjustment modules in Go, achieving <strong>100% functional parity</strong> with legacy mainframe systems.</li>
-                <li>Led development of a natural language-driven test case automation tool using CrewAI, Python, and Visa internal APIs, <strong>reducing manual QA effort by 50%</strong> and enabling automatic identification of test scenarios across authorization workflows.</li>
-                <li>Awarded <strong>Top 3 in GenAI Hackathon 2025</strong> (out of 20+ teams) for a Knowledge Retrieval Tool using RAG to consolidate fragmented mainframe documentation across Jira and Bitbucket.</li>
-                <li>Designed an automated reporting system in Go tracking feature completion and release-readiness metrics, adopted by engineering leadership — <strong>reducing reporting time by 80%</strong>.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-marker">
-              <div class="timeline-dot"></div>
-            </div>
-            <div class="timeline-body">
-              <span class="timeline-date">May 2023 – Aug 2023</span>
-              <p class="timeline-role">Software Development Intern</p>
-              <span class="timeline-company">Visa Inc. &middot; Bengaluru</span>
-              <ul>
-                <li>Developed a POC to parse, clean, and transform Visa's proprietary transaction profile data using a Python CLI. Ingested 10,000+ profile entities into Elasticsearch via Logstash, <strong>reducing search time from 5+ minutes to under 10 seconds</strong>.</li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ── PROJECTS ──────────────────────────────────── -->
-    <section id="projects" class="section section-alt">
-      <div class="section-inner">
-        <span class="section-label reveal">Projects</span>
-        <div class="projects-grid">
-
-          <div class="project-card reveal">
-            <div class="project-card-header">
-              <h3>OEM Data Simulator</h3>
-              <a href="https://github.com/Agilan20/Giant-Slayers-Backend" target="_blank" rel="noopener" class="project-link" aria-label="GitHub link">↗</a>
-            </div>
-            <p>Realistic vehicle telemetry simulator for the Motorq Hackathon — emulates speed, fuel, GPS, and tire pressure across diverse driving scenarios using the SUMO engine and TraCI API.</p>
-            <div class="project-tags">
-              <span>Python</span><span>SUMO</span><span>TraCI</span><span>Simulation</span>
-            </div>
-          </div>
-
-          <div class="project-card reveal">
-            <div class="project-card-header">
-              <h3>AI Architectural Workflows</h3>
-              <a href="https://ieeexplore.ieee.org/document/10782715" target="_blank" rel="noopener" class="project-link" aria-label="IEEE paper link">↗</a>
-            </div>
-            <p>End-to-end AI system generating 2D floorplans and photorealistic interior designs from natural language prompts. Evaluated GPT-3.5, Llama 3, and Mistral. Published in <em>IEEE CVMI 2024</em>.</p>
-            <div class="project-tags">
-              <span>LLMs</span><span>Python</span><span>IEEE</span><span>Computer Vision</span>
-            </div>
-          </div>
-
-          <div class="project-card reveal">
-            <div class="project-card-header">
-              <h3>Real-Time Quiz App</h3>
-              <a href="https://github.com/AswinRam4433/QuizMe" target="_blank" rel="noopener" class="project-link" aria-label="GitHub link">↗</a>
-            </div>
-            <p>Microservice-based quiz platform with a Go backend, goroutines, JWT authentication, PostgreSQL storage, and WebSocket support for real-time updates. React/TypeScript frontend.</p>
-            <div class="project-tags">
-              <span>Go</span><span>React</span><span>WebSockets</span><span>PostgreSQL</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ── SKILLS ────────────────────────────────────── -->
-    <section id="skills" class="section">
-      <div class="section-inner">
-        <span class="section-label reveal">Skills</span>
-        <div class="skills-grid reveal">
-
-          <div class="skill-group">
-            <h4>Languages</h4>
-            <div class="skill-tags">
-              <span>Go</span><span>Python</span><span>C++</span>
-              <span>TypeScript</span><span>SQL</span><span>HTML / CSS</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <h4>AI &amp; Machine Learning</h4>
-            <div class="skill-tags">
-              <span>LLMs</span><span>RAG</span><span>Fine-tuning</span><span>LoRA</span>
-              <span>PyTorch</span><span>HuggingFace</span><span>ChromaDB</span><span>FAISS</span>
-              <span>CrewAI</span><span>Ollama</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <h4>Frameworks &amp; Libraries</h4>
-            <div class="skill-tags">
-              <span>React</span><span>FastAPI</span><span>Flask</span><span>Echo</span>
-              <span>Streamlit</span><span>OpenCV</span><span>spaCy</span><span>NLTK</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <h4>Infrastructure &amp; Tools</h4>
-            <div class="skill-tags">
-              <span>Docker</span><span>PostgreSQL</span><span>MongoDB</span><span>Redis</span>
-              <span>Elasticsearch</span><span>CI/CD</span><span>REST APIs</span><span>Microservices</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ── EDUCATION ─────────────────────────────────── -->
-    <section id="education" class="section section-alt">
-      <div class="section-inner section-inner--mid">
-        <span class="section-label reveal">Education</span>
-        <div class="education-card reveal">
-          <div>
-            <h3>Bachelor of Engineering &mdash; Information Technology</h3>
-            <p class="education-school">College of Engineering, Guindy &middot; Anna University</p>
-          </div>
-          <div class="education-meta">
-            <span class="education-date">Aug 2020 &ndash; May 2024</span>
-            <span class="education-gpa">CGPA &nbsp;9.22 / 10</span>
+          <div class="hero-links">
+            <a href="#experience" class="btn btn-primary">View Work</a>
+            <a
+              href="https://github.com/AswinRam4433"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-ghost"
+              >GitHub</a
+            >
+            <a
+              href="https://www.linkedin.com/in/aswinramanathan"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-ghost"
+              >LinkedIn</a
+            >
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ── CONTACT ───────────────────────────────────── -->
-    <section id="contact" class="section">
-      <div class="section-inner">
-        <div class="contact-inner">
-          <h2 class="contact-heading reveal">Let&rsquo;s connect</h2>
-          <p class="contact-sub reveal">
-            I&rsquo;m always open to interesting conversations, collaborations, or just a
-            chat about distributed systems and AI.
-          </p>
-          <div class="contact-links reveal">
-            <a href="mailto:aswinrv1@gmail.com">aswinrv1@gmail.com</a>
-            <a href="https://www.linkedin.com/in/aswinramanathan" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://github.com/AswinRam4433" target="_blank" rel="noopener">GitHub</a>
+      <!-- ── ABOUT ─────────────────────────────────────── -->
+      <section id="about" class="section section-alt">
+        <div class="section-inner section-inner--mid">
+          <span class="section-label reveal">About</span>
+          <div class="about-content">
+            <p class="reveal">
+              I'm a Software Development Engineer at
+              <strong>Visa Inc.</strong> in Bengaluru, contributing to Open
+              VisaNet — Visa's next-generation payment processing platform. My
+              work involves designing and building authorization features in Go
+              that achieve functional parity with decades-old mainframe systems.
+              <i
+                >You know that split second between tapping your card and the
+                relieved beep of approval? Yeah — I build that. (And
+                occasionally, the declined one too.)</i
+              >
+            </p>
+            <p class="reveal">
+              I graduated from
+              <strong>College of Engineering, Guindy (Anna University)</strong>
+              in 2024 with a degree in Information Technology and a CGPA of
+              9.22/10. Outside of production systems, I spend time on applied AI
+              — RAG pipelines, fine-tuning, and tools that reduce the gap
+              between raw LLM capability and real engineering workflows.
+            </p>
+            <p class="reveal">
+              I also write occasionally about the things I'm learning —
+              <a
+                href="blog.html"
+                style="
+                  color: var(--accent);
+                  border-bottom: 1px solid var(--accent-pale);
+                "
+                >check out the blog</a
+              >.
+            </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-  </main>
+      <!-- ── EXPERIENCE ────────────────────────────────── -->
+      <section id="experience" class="section">
+        <div class="section-inner">
+          <span class="section-label reveal">Experience</span>
+          <div class="timeline">
+            <div class="timeline-item reveal">
+              <div class="timeline-marker">
+                <div class="timeline-dot"></div>
+              </div>
+              <div class="timeline-body">
+                <span class="timeline-date">Jun 2024 – Present</span>
+                <p class="timeline-role">Software Development Engineer</p>
+                <span class="timeline-company"
+                  >Visa Inc. &middot; Bengaluru</span
+                >
+                <ul>
+                  <li>
+                    Develop core authorization features for Open VisaNet (OVN),
+                    Visa's next-generation payment processing platform —
+                    including velocity fraud prevention and financial adjustment
+                    modules in Go, achieving
+                    <strong>100% functional parity</strong> with legacy
+                    mainframe systems.
+                  </li>
+                  <li>
+                    Led development of a natural language-driven test case
+                    automation tool using CrewAI, Python, and Visa internal
+                    APIs, <strong>reducing manual QA effort by 50%</strong> and
+                    enabling automatic identification of test scenarios across
+                    authorization workflows.
+                  </li>
+                  <li>
+                    Awarded <strong>Top 3 in GenAI Hackathon 2025</strong> (out
+                    of 20+ teams) for a Knowledge Retrieval Tool using RAG to
+                    consolidate fragmented mainframe documentation across Jira
+                    and Bitbucket.
+                  </li>
+                  <li>
+                    Designed an automated reporting system in Go tracking
+                    feature completion and release-readiness metrics, adopted by
+                    engineering leadership —
+                    <strong>reducing reporting time by 80%</strong>.
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-  <footer class="footer">
-    <p>&copy; 2025 Aswin Ramanathan</p>
-  </footer>
+            <div class="timeline-item reveal">
+              <div class="timeline-marker">
+                <div class="timeline-dot"></div>
+              </div>
+              <div class="timeline-body">
+                <span class="timeline-date">May 2023 – Aug 2023</span>
+                <p class="timeline-role">Software Development Intern</p>
+                <span class="timeline-company"
+                  >Visa Inc. &middot; Bengaluru</span
+                >
+                <ul>
+                  <li>
+                    Developed a POC to parse, clean, and transform Visa's
+                    proprietary transaction profile data using a Python CLI.
+                    Ingested 10,000+ profile entities into Elasticsearch via
+                    Logstash,
+                    <strong
+                      >reducing search time from 5+ minutes to under 10
+                      seconds</strong
+                    >.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <!--
+      <!-- ── PROJECTS ──────────────────────────────────── -->
+      <section id="projects" class="section section-alt">
+        <div class="section-inner">
+          <span class="section-label reveal">Projects</span>
+          <div class="projects-grid">
+            <div class="project-card reveal">
+              <div class="project-card-header">
+                <h3>OEM Data Simulator</h3>
+                <a
+                  href="https://github.com/Agilan20/Giant-Slayers-Backend"
+                  target="_blank"
+                  rel="noopener"
+                  class="project-link"
+                  aria-label="GitHub link"
+                  >↗</a
+                >
+              </div>
+              <p>
+                Realistic vehicle telemetry simulator for the Motorq Hackathon —
+                emulates speed, fuel, GPS, and tire pressure across diverse
+                driving scenarios using the SUMO engine and TraCI API.
+                <br><br>
+                <i>
+                  Plug in your traffic conditions, routes, and topography, hit
+                  go, and out comes realistic vehicle telemetry at whatever
+                  sampling frequency you need — no actual car required.
+                </i>
+              </p>
+
+              <div class="project-tags">
+                <span>Python</span><span>SUMO</span><span>TraCI</span
+                ><span>Simulation</span>
+              </div>
+            </div>
+
+            <div class="project-card reveal">
+              <div class="project-card-header">
+                <h3>AI Architectural Workflows</h3>
+                <a
+                  href="https://ieeexplore.ieee.org/document/10782715"
+                  target="_blank"
+                  rel="noopener"
+                  class="project-link"
+                  aria-label="IEEE paper link"
+                  >↗</a
+                >
+              </div>
+              <p>
+                End-to-end AI system generating 2D floorplans and photorealistic
+                interior designs from natural language prompts. Evaluated
+                GPT-3.5, Llama 3, and Mistral. Published in
+                <em>IEEE CVMI 2024</em>.
+              </p>
+              <div class="project-tags">
+                <span>LLMs</span><span>Python</span><span>IEEE</span
+                ><span>Computer Vision</span>
+              </div>
+            </div>
+
+            <div class="project-card reveal">
+              <div class="project-card-header">
+                <h3>Real-Time Quiz App</h3>
+                <a
+                  href="https://github.com/AswinRam4433/QuizMe"
+                  target="_blank"
+                  rel="noopener"
+                  class="project-link"
+                  aria-label="GitHub link"
+                  >↗</a
+                >
+              </div>
+              <p>
+                Microservice-based quiz platform with a Go backend, goroutines,
+                JWT authentication, PostgreSQL storage, and WebSocket support
+                for real-time updates. React/TypeScript frontend.
+                <br /><br />
+                <i>
+                  At work, we toss around terms like Microservices, Kubernetes,
+                  gRPC, and Docker like they cost nothing — because a brilliant
+                  DevSecOps team quietly abstracts all this away. This project
+                  was a way for me to understand all this on a deeper level:
+                  turns out, making distributed systems not fall apart at 2 AM
+                  is genuinely hard work :)
+                </i>
+              </p>
+              <div class="project-tags">
+                <span>Go</span><span>React</span><span>WebSockets</span
+                ><span>PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SKILLS ────────────────────────────────────── -->
+      <section id="skills" class="section">
+        <div class="section-inner">
+          <span class="section-label reveal">Skills</span>
+          <div class="skills-grid reveal">
+            <div class="skill-group">
+              <h4>Languages</h4>
+              <div class="skill-tags">
+                <span>Go</span><span>Python</span><span>C++</span>
+                <span>TypeScript</span><span>SQL</span><span>HTML / CSS</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <h4>AI &amp; Machine Learning</h4>
+              <div class="skill-tags">
+                <span>LLMs</span><span>RAG</span><span>Fine-tuning</span
+                ><span>LoRA</span> <span>PyTorch</span><span>HuggingFace</span
+                ><span>ChromaDB</span><span>FAISS</span> <span>CrewAI</span
+                ><span>Ollama</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <h4>Frameworks &amp; Libraries</h4>
+              <div class="skill-tags">
+                <span>React</span><span>FastAPI</span><span>Flask</span
+                ><span>Echo</span> <span>Streamlit</span><span>OpenCV</span
+                ><span>spaCy</span><span>NLTK</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <h4>Infrastructure &amp; Tools</h4>
+              <div class="skill-tags">
+                <span>Docker</span><span>PostgreSQL</span><span>MongoDB</span
+                ><span>Redis</span> <span>Elasticsearch</span><span>CI/CD</span
+                ><span>REST APIs</span><span>Microservices</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── EDUCATION ─────────────────────────────────── -->
+      <section id="education" class="section section-alt">
+        <div class="section-inner section-inner--mid">
+          <span class="section-label reveal">Education</span>
+          <div class="education-card reveal">
+            <div>
+              <h3>Bachelor of Engineering &mdash; Information Technology</h3>
+              <p class="education-school">
+                College of Engineering, Guindy &middot; Anna University
+              </p>
+            </div>
+            <div class="education-meta">
+              <span class="education-date">Aug 2020 &ndash; May 2024</span>
+              <span class="education-gpa">CGPA &nbsp;9.22 / 10</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CONTACT ───────────────────────────────────── -->
+      <section id="contact" class="section">
+        <div class="section-inner">
+          <div class="contact-inner">
+            <h2 class="contact-heading reveal">Let&rsquo;s connect</h2>
+            <p class="contact-sub reveal">
+              I&rsquo;m always open to interesting conversations,
+              collaborations, or just a chat about distributed systems and AI.
+            </p>
+            <div class="contact-links reveal">
+              <a href="mailto:aswinrv1@gmail.com">aswinrv1@gmail.com</a>
+              <a
+                href="https://www.linkedin.com/in/aswinramanathan"
+                target="_blank"
+                rel="noopener"
+                >LinkedIn</a
+              >
+              <a
+                href="https://github.com/AswinRam4433"
+                target="_blank"
+                rel="noopener"
+                >GitHub</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2025 Aswin Ramanathan</p>
+    </footer>
+
+    <!--
     GoatCounter analytics — privacy-first, no cookies.
     Setup (one-time):
       1. Create a free account at https://www.goatcounter.com
       2. Replace YOUR-SITE below with your GoatCounter site code
       3. View your stats at https://YOUR-SITE.goatcounter.com
   -->
-  <script data-goatcounter="https://aswinramanathan.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js">
-  </script>
+    <script
+      data-goatcounter="https://aswinramanathan.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
 
-  <script src="js/main.js"></script>
-</body>
+    <script src="js/main.js"></script>
+  </body>
 </html>

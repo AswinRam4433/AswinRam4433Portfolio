@@ -1,128 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog &mdash; Aswin Ramanathan</title>
-  <meta name="description" content="Writing on distributed systems, Go, and applied AI." />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog &mdash; Aswin Ramanathan</title>
+    <meta
+      name="description"
+      content="Writing on distributed systems, Go, and applied AI."
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" type="image/png" href="bazinga.png" />
-</head>
-<body>
-
-  <!-- ── NAV ──────────────────────────────────────── -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo">Aswin Ramanathan</a>
-      <div class="nav-links" id="nav-links">
-        <a href="/#about">About</a>
-        <a href="/#experience">Experience</a>
-        <a href="/#projects">Projects</a>
-        <a href="blog.html" style="color: var(--accent); font-weight: 600;">Blog</a>
-        <a href="/#contact" class="nav-cta">Get in touch</a>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/png" href="bazinga.png" />
+  </head>
+  <body>
+    <!-- ── NAV ──────────────────────────────────────── -->
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo">Aswin Ramanathan</a>
+        <div class="nav-links" id="nav-links">
+          <a href="/#about">About</a>
+          <a href="/#experience">Experience</a>
+          <a href="/#projects">Projects</a>
+          <a href="blog.html" style="color: var(--accent); font-weight: 600"
+            >Blog</a
+          >
+          <a href="/#contact" class="nav-cta">Get in touch</a>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+    </nav>
 
-  <main class="blog-main">
-
-    <!-- ── BLOG HERO ──────────────────────────────── -->
-    <div class="blog-hero">
-      <div class="blog-hero-inner">
-        <span class="section-label" style="margin-bottom: 1rem;">Writing</span>
-        <h1>Things I&rsquo;ve<br><em>been thinking about</em></h1>
-        <p>Distributed systems, Go internals, applied AI, and the occasional engineering war story.</p>
+    <main class="blog-main">
+      <!-- ── BLOG HERO ──────────────────────────────── -->
+      <div class="blog-hero">
+        <div class="blog-hero-inner">
+          <span class="section-label" style="margin-bottom: 1rem">Writing</span>
+          <h1>Things I&rsquo;ve<br /><em>been thinking about</em></h1>
+          <p>
+            Distributed systems, Go internals, applied AI, and the occasional
+            engineering war story.
+          </p>
+        </div>
       </div>
-    </div>
 
-    <!-- ── POST LIST ──────────────────────────────── -->
-    <div class="blog-list">
-
-      <!--
+      <!-- ── POST LIST ──────────────────────────────── -->
+      <div class="blog-list">
+        <!--
         TO ADD A NEW POST:
         1. Copy one .blog-post-item block below
         2. Update the date, title href, title text, excerpt, tags, and read-time
         3. Create the post HTML file (e.g., posts/my-post.html) using posts/template.html as a base
       -->
 
-      <article class="blog-post-item reveal">
-        <div class="blog-post-date">Jun 2025</div>
-        <div class="blog-post-body">
-          <h2><a href="posts/crewai-test-automation.html">Building a Natural Language Test Automation Tool with CrewAI</a></h2>
-          <p class="blog-post-excerpt">
-            How we used CrewAI and Visa's internal APIs to turn plain English descriptions into
-            runnable authorization test cases — cutting manual QA effort in half and surfacing
-            edge cases we hadn't thought of.
-          </p>
-          <div class="blog-post-footer">
-            <span class="blog-tag">AI</span>
-            <span class="blog-tag">Python</span>
-            <span class="blog-tag">CrewAI</span>
-            <span class="read-time">7 min read</span>
+        <article class="blog-post-item reveal">
+          <div class="blog-post-date">Jun 2025</div>
+          <div class="blog-post-body">
+            <h2>
+              <a href="posts/crewai-test-automation.html"
+                >Building a Natural Language Test Automation Tool with CrewAI</a
+              >
+            </h2>
+            <p class="blog-post-excerpt">
+              How we used CrewAI and Visa's internal APIs to turn plain English
+              descriptions into runnable authorization test cases — cutting
+              manual QA effort in half and surfacing edge cases we hadn't
+              thought of.
+            </p>
+            <div class="blog-post-footer">
+              <span class="blog-tag">AI</span>
+              <span class="blog-tag">Python</span>
+              <span class="blog-tag">CrewAI</span>
+              <span class="read-time">7 min read</span>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="blog-post-item reveal">
-        <div class="blog-post-date">Apr 2025</div>
-        <div class="blog-post-body">
-          <h2><a href="posts/go-concurrency-patterns.html">Goroutines in Production: Patterns That Actually Scale</a></h2>
-          <p class="blog-post-excerpt">
-            A practical look at the concurrency patterns we use in Open VisaNet's authorization
-            pipeline — worker pools, bounded fan-out, context propagation, and the mistakes
-            I made before getting them right.
-          </p>
-          <div class="blog-post-footer">
-            <span class="blog-tag">Go</span>
-            <span class="blog-tag">Concurrency</span>
-            <span class="blog-tag">Systems</span>
-            <span class="read-time">10 min read</span>
+        <article class="blog-post-item reveal">
+          <div class="blog-post-date">Apr 2025</div>
+          <div class="blog-post-body">
+            <h2>
+              <a href="posts/go-concurrency-patterns.html"
+                >Goroutines in Production: Patterns That Actually Scale</a
+              >
+            </h2>
+            <p class="blog-post-excerpt">
+              A practical look at the concurrency patterns we use in Open
+              VisaNet's authorization pipeline — worker pools, bounded fan-out,
+              context propagation, and the mistakes I made before getting them
+              right.
+            </p>
+            <div class="blog-post-footer">
+              <span class="blog-tag">Go</span>
+              <span class="blog-tag">Concurrency</span>
+              <span class="blog-tag">Systems</span>
+              <span class="read-time">10 min read</span>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="blog-post-item reveal">
-        <div class="blog-post-date">Mar 2025</div>
-        <div class="blog-post-body">
-          <h2><a href="posts/rag-enterprise-docs.html">RAG for Enterprise Documentation: Lessons from a Hackathon</a></h2>
-          <p class="blog-post-excerpt">
-            We built a knowledge retrieval tool over fragmented mainframe docs scattered across Jira
-            and Bitbucket — and won Top 3 at Visa's GenAI Hackathon. Here's what worked, what
-            didn't, and why chunking strategy matters more than your embedding model.
-          </p>
-          <div class="blog-post-footer">
-            <span class="blog-tag">AI</span>
-            <span class="blog-tag">RAG</span>
-            <span class="blog-tag">LLMs</span>
-            <span class="read-time">8 min read</span>
+        <article class="blog-post-item reveal">
+          <div class="blog-post-date">Mar 2025</div>
+          <div class="blog-post-body">
+            <h2>
+              <a href="posts/rag-enterprise-docs.html"
+                >RAG for Enterprise Documentation: Lessons from a Hackathon</a
+              >
+            </h2>
+            <p class="blog-post-excerpt">
+              We built a knowledge retrieval tool over fragmented mainframe docs
+              scattered across Jira and Bitbucket — and won Top 3 at Visa's
+              GenAI Hackathon. Here's what worked, what didn't, and why chunking
+              strategy matters more than your embedding model.
+            </p>
+            <div class="blog-post-footer">
+              <span class="blog-tag">AI</span>
+              <span class="blog-tag">RAG</span>
+              <span class="blog-tag">LLMs</span>
+              <span class="read-time">8 min read</span>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
+    </main>
 
-    </div>
-  </main>
+    <footer class="footer">
+      <p>&copy; 2025 Aswin Ramanathan</p>
+    </footer>
 
-  <footer class="footer">
-    <p>&copy; 2025 Aswin Ramanathan</p>
-  </footer>
-
-  <!--
+    <!--
     GoatCounter analytics — replace YOUR-SITE with your GoatCounter site code.
     Stats visible only to you at https://YOUR-SITE.goatcounter.com
   -->
-  <script
-    data-goatcounter="https://YOUR-SITE.goatcounter.com/count"
-    async src="//gc.zgo.at/count.js">
-  </script>
+    <script
+      data-goatcounter="https://YOUR-SITE.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
 
-  <script src="js/main.js"></script>
-</body>
+    <script src="js/main.js"></script>
+  </body>
 </html>
