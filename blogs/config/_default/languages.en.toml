@@ -1,0 +1,20 @@
+locale = "en"
+label = "English"
+weight = 1
+title = "Aswin Ramanathan"
+
+[params]
+  displayName = "English"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2 January 2006"
+  description = "Writing on distributed systems, Go, and applied AI."
+
+[params.author]
+  name = "Aswin Ramanathan"
+  email = "aswinrv1@gmail.com"
+  headline = "Writing on distributed systems, Go, and applied AI."
+  bio = "Engineer. Writing about things I'm building and thinking through."
+  links = [
+    { github = "https://github.com/AswinRam4433" },
+  ]

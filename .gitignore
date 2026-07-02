@@ -89,3 +89,9 @@ lerna-debug.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Hugo
+blogs/public/
+blogs/resources/
+blogs/.hugo_build.lock
+blogs/themes/

@@ -1,0 +1,19 @@
+theme = "blowfish"
+baseURL = "https://aswinnr.com/blogs/"
+defaultContentLanguage = "en"
+
+enableRobotsTXT = true
+summaryLength = 30
+enableEmoji = true
+buildDrafts = false
+buildFuture = false
+
+[pagination]
+  pagerSize = 10
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
