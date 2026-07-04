@@ -1,0 +1,55 @@
+name: Deploy to Vercel
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  HUGO_VERSION: 0.163.3
+  BLOWFISH_VERSION: v2.104.0
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.HUGO_VERSION }}
+          extended: true
+
+      - name: Download Blowfish theme
+        run: |
+          curl -L -o /tmp/blowfish.tar.gz \
+            https://github.com/nunocoracao/blowfish/archive/refs/tags/${{ env.BLOWFISH_VERSION }}.tar.gz
+          mkdir -p blogs/themes
+          tar -xzf /tmp/blowfish.tar.gz -C blogs/themes/
+          mv "blogs/themes/blowfish-${BLOWFISH_VERSION#v}" blogs/themes/blowfish
+
+      - name: Build Hugo site
+        run: hugo --source blogs/ --minify
+
+      - name: Assemble dist/
+        run: |
+          mkdir -p dist
+          cp index.html blog.html bazinga.png github-mark-white.png CNAME dist/
+          cp -r css js dist/
+          cp -r blogs/public dist/blogs
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Deploy Preview to Vercel
+        if: github.event_name == 'pull_request'
+        run: vercel deploy dist --token=${{ secrets.VERCEL_TOKEN }} --yes
+
+      - name: Deploy Production to Vercel
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: vercel deploy dist --prod --token=${{ secrets.VERCEL_TOKEN }} --yes

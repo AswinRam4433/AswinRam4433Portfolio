@@ -95,3 +95,5 @@ blogs/public/
 blogs/resources/
 blogs/.hugo_build.lock
 blogs/themes/
+.vercel
+.env*
