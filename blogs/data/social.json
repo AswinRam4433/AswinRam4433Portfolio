@@ -1,0 +1,17 @@
+{
+  "linkedin": {
+    "icon": "linkedin",
+    "title": "LinkedIn",
+    "url": "https://www.linkedin.com/in/aswinramanathan/"
+  },
+  "twitter": {
+    "icon": "x-twitter",
+    "title": "Twitter",
+    "url": "https://x.com/BitwiseOperator"
+  },
+  "reddit": {
+    "icon": "reddit",
+    "title": "Reddit",
+    "url": "https://reddit.com/user/WilliamCodesWorth"
+  }
+}

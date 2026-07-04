@@ -15,5 +15,12 @@ buildFuture = false
   tag = "tags"
   category = "categories"
 
+[outputFormats.PostIndex]
+  mediaType = "application/json"
+  baseName = "index"
+  isPlainText = true
+  notAlternative = true
+
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+  section = ["HTML"]

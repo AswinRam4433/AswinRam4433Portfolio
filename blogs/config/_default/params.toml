@@ -7,6 +7,9 @@ enableCodeCopy = true
 
 mainSections = ["posts"]
 
+defaultFeaturedImage = "img/default-cover.svg"
+defaultBackgroundImage = "img/default-cover.svg"
+
 [header]
   layout = "fixed"
 
@@ -19,17 +22,26 @@ mainSections = ["posts"]
 [homepage]
   layout = "profile"
   showRecent = true
-  showRecentItems = 10
+  showRecentItems = 5
+  cardView = true
 
 [article]
   showDate = true
-  showAuthor = false
+  showAuthor = true
   showBreadcrumbs = true
   showDraftLabel = true
   showEdit = false
   showReadingTime = true
   showTableOfContents = true
+  showHero = true
+  heroStyle = "background"
+  showTaxonomies = true
+  showCategoriesInSecondaryColor = true
+  showRelatedContent = true
+  relatedContentLimit = 3
+  sharingLinks = ["linkedin", "twitter", "reddit"]
 
 [list]
-  showCards = false
+  showCards = true
+  showSummary = true
   showTableOfContents = false

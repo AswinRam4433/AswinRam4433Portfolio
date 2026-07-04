@@ -1,0 +1,13 @@
+{{- $posts := slice -}}
+{{- range .Pages -}}
+  {{- $posts = $posts | append (dict
+        "title" .Title
+        "date" (.Date.Format "2006-01-02")
+        "permalink" .Permalink
+        "summary" (.Params.summary | default .Summary)
+        "tags" (.Params.tags | default slice)
+        "readingTime" .ReadingTime
+        "wordCount" .WordCount
+      ) -}}
+{{- end -}}
+{{- $posts | jsonify -}}
