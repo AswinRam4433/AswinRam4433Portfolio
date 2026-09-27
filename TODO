@@ -1,2 +1,183 @@
-[ ] Make a certifications section
-[ ] Add all GitHub projects that are worthy of being added
+[ ] Make blog.html list only real posts, driven by actual Hugo content
+[ ] Make individual Hugo posts look like a finished blog, not a wall of text
+[ ] Fix the blog favicon (currently shows Blowfish's default fish icon)
+
+--- 1. BLOG.HTML SHOULD LIST REAL POSTS, NOT DUMMY ONES ---
+
+Problem: blog.html has three hand-written <article class="blog-post-item">
+blocks (CrewAI, Go concurrency, RAG hackathon) that link to posts/*.html
+files which don't exist anymore. This content has nothing to do with what's
+actually published under blogs/content/posts/ (currently just hello-world.md).
+Keep blog.html's existing visual design (date badge, title, excerpt, tags,
+read time, .reveal scroll animation) but populate it from real posts.
+
+Chosen approach: Hugo emits a small JSON feed of real posts at build time;
+blog.html fetches it client-side and renders the same markup it uses today.
+(Do NOT reuse Blowfish's built-in /blogs/index.json search-index output —
+that's owned by the theme's search feature, has no tags/readingTime, and its
+shape can change on theme upgrade. Add our own dedicated output format
+instead so it survives theme upgrades.)
+
+STEP 1 — Define a custom Hugo output format
+  In blogs/config/_default/hugo.toml add:
+    [outputFormats.PostIndex]
+      mediaType = "application/json"
+      baseName = "index"
+      isPlainText = true
+      notAlternative = true
+  Then wire it to the posts section only:
+    [outputs]
+      home = ["HTML", "RSS", "JSON"]   (unchanged)
+      section = ["HTML"]
+    And add a per-section override so only `posts` also emits PostIndex —
+    Hugo cascades work via a `_default/posts/_index.md` front matter
+    (outputs: ["html", "postindex"]) if section-level outputs config isn't
+    granular enough. Confirm which approach Hugo 0.163 supports before
+    committing to one; fall back to a content/posts/_index.md front-matter
+    override if the global [outputs] block can't scope to one section.
+
+STEP 2 — Add the template
+  Create blogs/layouts/posts/list.postindex.json (site-level override,
+  NOT inside blogs/themes/blowfish/ — must survive theme re-downloads in CI).
+  It should range over .Pages (regular pages only, excluding the section
+  page itself), skipping drafts/future posts, and emit an array of:
+    {
+      "title":        .Title
+      "date":         .Date (ISO 8601, e.g. .Date.Format "2006-01-02")
+      "permalink":    .Permalink        (absolute, e.g. https://aswinnr.com/blogs/posts/hello-world/)
+      "summary":      .Summary or front-matter `summary`
+      "tags":         .Params.tags
+      "readingTime":  .ReadingTime      (Hugo built-in, minutes)
+      "wordCount":    .WordCount
+    }
+  Verify output locally with: hugo --source blogs/ && cat blogs/public/posts/index.postindex.json
+
+STEP 3 — Rewrite blog.html
+  - Delete the three hardcoded <article class="blog-post-item"> blocks
+    and the "TO ADD A NEW POST" comment above them (that workflow is dead
+    once this is data-driven).
+  - Leave an empty <div class="blog-list" id="blog-list"></div> container.
+  - Add a small fetch in js/main.js (or a new js/blog.js, only loaded on
+    blog.html):
+      fetch('/blogs/posts/index.postindex.json')
+        .then(r => r.json())
+        .then(posts => posts
+          .sort((a, b) => new Date(b.date) - new Date(a.date))
+          .forEach(renderPost));
+    renderPost() builds the same DOM structure currently hardcoded
+    (blog-post-date / blog-post-body / h2 > a / blog-post-excerpt /
+    blog-tag spans / read-time span) so the existing CSS and the
+    `.reveal` scroll-in animation keep working — attach `.reveal` to
+    each generated <article> and make sure whatever IntersectionObserver
+    wires up `.reveal` runs after these nodes are inserted, not just on
+    DOMContentLoaded (they don't exist yet at that point).
+  - Format the date client-side to match the current "Jun 2025" style
+    (Intl.DateTimeFormat) and the read time as "N min read" from
+    readingTime.
+  - Point each title link at the post's `permalink` from the JSON
+    (already absolute, points into /blogs/posts/...).
+  - Handle the zero-posts and fetch-failure cases (don't leave a blank
+    section — show a one-line "Nothing published yet" fallback).
+
+STEP 4 — Clean up dead references
+  - Remove/ignore the unused posts/ directory at repo root and
+    posts/template.html if nothing else references them.
+  - Double check no other page links to the old dummy slugs
+    (posts/crewai-test-automation.html etc).
+
+--- 2. MAKE INDIVIDUAL POSTS LOOK LIKE AN ACTUAL BLOWFISH BLOG ---
+
+Problem: the Hello World post (https://aswinnr.com/blogs/posts/hello-world/)
+renders as plain centered text with a floating TOC — technically correct but
+visually flat. Blowfish has a lot more turned off than on right now. Current
+state is in blogs/config/_default/params.toml.
+
+STEP 1 — Turn on article richness (in [article] block)
+  showAuthor         = true   (currently false — author bio exists in
+                                languages.en.toml but never renders)
+  showHero           = true
+  heroStyle          = "background"   (or "big" — try both, "background"
+                                        matches the dark theme better)
+  showTaxonomies     = true   (currently false — this is *why* the tags
+                                already set in front matter, e.g. "meta",
+                                "writing", never show up on the post)
+  showCategoriesInSecondaryColor = true (once categories are actually used)
+  showRelatedContent = true   (does nothing useful until there are 3+ posts
+                                but costs nothing to turn on now)
+  relatedContentLimit = 3
+  sharingLinks       = ["linkedin", "twitter", "reddit", "email"]  (pick
+                                whichever networks are actually relevant)
+
+STEP 2 — Give the author block something to render
+  [params.author] in blogs/config/_default/languages.en.toml needs an
+  `image` field (Blowfish shows an avatar next to the bio once showAuthor
+  is on). Add a small headshot/avatar asset under blogs/assets/ or
+  blogs/static/img/ and reference it there.
+
+STEP 3 — Give posts a hero/feature image
+  showHero needs an actual image per post, or a site-wide fallback:
+    [params]
+      defaultFeaturedImage = "img/default-cover.png"
+      defaultBackgroundImage = "img/default-cover.png"
+  Add that fallback image under blogs/assets/img/ (Blowfish reads
+  featured/background images from assets, not static, for image
+  processing to work). Real posts can override per-post with
+  `featureimage:` / `image:` in front matter later.
+
+STEP 4 — Sanity-check homepage/list pages too
+  These aren't what blog.html links to today, but /blogs/ and
+  /blogs/posts/ are still publicly reachable and currently plain-list.
+  Consider (in the same params.toml):
+    [homepage] cardView = true, showRecentItems = 5
+    [list]     showCards = true, showSummary = true
+  Purely cosmetic, lower priority than the article-page fixes above.
+
+STEP 5 — Rebuild and visually compare
+  hugo --source blogs/ --minify && open blogs/public/posts/hello-world/index.html
+  Check both light and dark appearance (autoSwitchAppearance = true is on).
+
+--- 3. FIX THE BLOG FAVICON ---
+
+Problem: /blogs/ pages show Blowfish's own fish-logo favicon instead of
+the site's real icon (bazinga.png, already used as the favicon for
+index.html and blog.html at the repo root).
+
+Why it happens: blogs/themes/blowfish/layouts/partials/head.html looks
+for a `partials/favicons.html` override first, then falls back to
+site-relative files named apple-touch-icon.png, favicon-32x32.png,
+favicon-16x16.png, site.webmanifest. Those files exist under
+blogs/themes/blowfish/static/ (the theme's own defaults) but NOT under
+blogs/static/ (currently empty), so Hugo serves the theme's bundled fish
+icon instead of anything site-specific.
+
+STEP 1 — Generate the icon set from bazinga.png (225x225, plenty of
+  resolution to downscale, no upscaling needed):
+    sips -z 16 16   bazinga.png --out blogs/static/favicon-16x16.png
+    sips -z 32 32   bazinga.png --out blogs/static/favicon-32x32.png
+    sips -z 180 180 bazinga.png --out blogs/static/apple-touch-icon.png
+  Also produce a favicon.ico (sips can't do multi-size .ico directly —
+  use `magick` (ImageMagick) or an online favicon generator, or just ship
+  the 32x32 PNG as favicon.ico if browser support for the fallback favicon
+  URL isn't a concern given the <link> tags do the real work).
+
+STEP 2 — Add a site.webmanifest
+  Copy blogs/themes/blowfish/static/site.webmanifest as a starting point
+  into blogs/static/site.webmanifest and update name/short_name to
+  "Aswin Ramanathan" and icons[].src to the new files above.
+
+STEP 3 — Verify Hugo picks the site version over the theme's
+  Hugo's static file resolution prefers the site's own static/ over the
+  theme's, so no config change should be needed — just confirm after a
+  clean build:
+    rm -rf blogs/public && hugo --source blogs/ --minify
+    diff blogs/public/favicon-32x32.png blogs/static/favicon-32x32.png
+  (should be identical — proves the site's file won, not the theme's)
+
+--- NOTES ---
+  - None of the above should touch blogs/themes/ directly — that
+    directory is gitignored and re-downloaded fresh on every CI run
+    (see .github/workflows/vercel.yaml), so any theme-folder edit is
+    silently lost on the next deploy.
+  - After all three are done, rerun the existing GitHub Actions workflow
+    (push to main) and re-check https://aswinnr.com/blog.html and
+    https://aswinnr.com/blogs/posts/hello-world/ live.

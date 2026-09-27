@@ -21,6 +21,18 @@ buildFuture = false
   isPlainText = true
   notAlternative = true
 
+# Separate feed for the Bookshelf section. Deliberately its own output format
+# (not a reuse of PostIndex) so the shelf JSON shape can change without
+# touching the blog feed — and vice versa.
+[outputFormats.ShelfIndex]
+  mediaType = "application/json"
+  baseName = "index"
+  isPlainText = true
+  notAlternative = true
+
+# `section = ["HTML"]` is the default for every section. Sections that also
+# need a JSON feed opt in via `outputs:` in their own _index.md
+# (posts -> postindex, bookshelf -> shelfindex).
 [outputs]
   home = ["HTML", "RSS", "JSON"]
   section = ["HTML"]

@@ -33,15 +33,10 @@ jobs:
           tar -xzf /tmp/blowfish.tar.gz -C blogs/themes/
           mv "blogs/themes/blowfish-${BLOWFISH_VERSION#v}" blogs/themes/blowfish
 
-      - name: Build Hugo site
-        run: hugo --source blogs/ --minify
-
-      - name: Assemble dist/
-        run: |
-          mkdir -p dist
-          cp index.html blog.html bazinga.png github-mark-white.png CNAME dist/
-          cp -r css js dist/
-          cp -r blogs/public dist/blogs
+      - name: Build site
+        # Hugo build + dist/ assembly. Shared with local dev so a preview
+        # here and a preview on your machine are the same thing.
+        run: bash scripts/build.sh
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest

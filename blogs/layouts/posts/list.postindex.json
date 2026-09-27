@@ -4,7 +4,7 @@
         "title" .Title
         "date" (.Date.Format "2006-01-02")
         "permalink" .Permalink
-        "summary" (.Params.summary | default .Summary)
+        "summary" (.Params.summary | default (.Summary | plainify | truncate 220))
         "tags" (.Params.tags | default slice)
         "readingTime" .ReadingTime
         "wordCount" .WordCount
