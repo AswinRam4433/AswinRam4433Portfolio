@@ -1,0 +1,27 @@
+{{- /*
+  Bookshelf feed consumed by js/bookshelf.js on /bookshelf.html.
+
+  Lives at the site level (blogs/layouts/), NOT inside blogs/themes/blowfish/,
+  because the theme directory is gitignored and re-downloaded on every CI run.
+
+  Output: /blogs/bookshelf/index.json — an array of entries, newest read first
+  (the frontend sorts too, but ordering here keeps the raw feed readable).
+*/ -}}
+{{- $entries := slice -}}
+{{- range .Pages -}}
+  {{- $entries = $entries | append (dict
+        "title"       .Title
+        "author"      (.Params.author | default "")
+        "medium"      (.Params.medium | default "book")
+        "year"        (.Params.year | default 0)
+        "status"      (.Params.status | default "read")
+        "rating"      (.Params.rating | default 0)
+        "date"        (.Date.Format "2006-01-02")
+        "permalink"   .Permalink
+        "summary"     (.Params.summary | default (.Summary | plainify | truncate 220))
+        "tags"        (.Params.tags | default slice)
+        "readingTime" .ReadingTime
+        "wordCount"   .WordCount
+      ) -}}
+{{- end -}}
+{{- $entries | jsonify -}}
