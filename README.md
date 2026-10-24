@@ -52,8 +52,10 @@ Nothing is duplicated by hand. Write Markdown, push, done.
 │   ├── layouts/             # site-level template overrides (see the warning below)
 │   ├── archetypes/          # front-matter templates for `hugo new`
 │   └── themes/              # Blowfish — gitignored, re-downloaded on every build
+├── vercel.json              # security headers (CSP, HSTS, …) — see "Security headers"
 └── scripts/
-    └── build.sh             # Hugo build + dist/ assembly — shared by local dev and CI
+    ├── build.sh             # Hugo build + dist/ assembly — shared by local dev and CI
+    └── csp_hashes.py        # adds inline-script hashes to the CSP in dist/vercel.json
 ```
 
 > **Never edit anything inside `blogs/themes/`.** That directory is gitignored
@@ -242,6 +244,8 @@ What the workflow does:
    - every `.html` at the repo root → served at `/`
    - `css/`, `js/`, `bazinga.png`, `github-mark-white.png`, `CNAME` → served at `/`
    - `blogs/public/` → served at `/blogs/`
+   - `vercel.json` → `dist/vercel.json`, with inline-script hashes added to
+     its CSP (see [Security headers](#security-headers))
 4. Deploys `dist/` to Vercel — `--prod` for pushes to `main`, a preview URL for
    pull requests.
 
@@ -277,6 +281,35 @@ The `.vercel/` directory is gitignored; the committed values in
 bash scripts/build.sh
 vercel deploy dist --prod
 ```
+
+### Security headers
+
+`vercel.json` sets the response headers for every path: a
+Content-Security-Policy, HSTS, `X-Content-Type-Options`, `X-Frame-Options`,
+`Referrer-Policy`, `Permissions-Policy` and `Cross-Origin-Opener-Policy`.
+Vercel only reads it from the deployed directory, so `build.sh` writes the
+deployed copy to `dist/vercel.json`.
+
+The CSP's `script-src` doesn't include `'unsafe-inline'`. Each inline
+`<script>` is allowed by its sha256 hash instead, and
+`scripts/csp_hashes.py` computes those hashes from the built pages on every
+build. That covers the Vercel Analytics stub and Blowfish's medium-zoom init,
+and any inline script added later is covered automatically. Edit `vercel.json`
+for anything else, such as a new third-party origin:
+
+| If you add… | Allow it in |
+| --- | --- |
+| a script from another host | `script-src` |
+| a stylesheet (e.g. another font CSS) | `style-src` |
+| a web font file host | `font-src` |
+| an image hosted elsewhere | `img-src` |
+| an embed (YouTube, CodePen, …) | a new `frame-src` directive |
+| an API the page `fetch`es | `connect-src` |
+
+A blocked resource shows up as a CSP error in the browser console. To check a
+change, look at the console on the PR's Vercel preview. Vercel's preview
+toolbar (`vercel.live`) is intentionally not allowed, so it won't appear on
+previews.
 
 ### Domain
 

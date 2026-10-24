@@ -12,6 +12,7 @@
 #   dist/bookshelf.html
 #   dist/css/ dist/js/ ...   ← assets and images
 #   dist/blogs/...           ← Hugo output, served under /blogs/
+#   dist/vercel.json         ← security headers, CSP pinned to the inline scripts above
 #
 # Usage:
 #   bash scripts/build.sh
@@ -47,6 +48,12 @@ mkdir -p dist
 cp ./*.html bazinga.png github-mark-white.png CNAME dist/
 cp -r css js dist/
 cp -r blogs/public dist/blogs
+
+echo "→ Writing security headers"
+# vercel.json has to sit in the deployed directory to take effect. Its CSP
+# blocks inline scripts that aren't hashed, so the hashes are taken from the
+# pages just built. See README.md → Security headers.
+python3 scripts/csp_hashes.py vercel.json dist
 
 echo "✓ dist/ ready — $(find dist -type f | wc -l | tr -d ' ') files"
 echo "  preview with: python3 -m http.server -d dist 8000"
