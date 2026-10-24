@@ -290,7 +290,13 @@ Two trackers are wired into each root page — remove either if you'd rather not
 have it.
 
 - **GoatCounter** (privacy-first, no cookies): already configured for
-  `https://aswinramanathan.goatcounter.com`. Stats are private to you.
+  `https://aswinramanathan.goatcounter.com`. Stats are private to you. The
+  script is pinned to `count.v5.js` with a Subresource Integrity hash, so the
+  browser refuses to run it if the file on GoatCounter's CDN ever changes.
+  Versioned files never change; to upgrade, copy the new `<script>` tag (hash
+  included) from GoatCounter's
+  [count.js versions](https://www.goatcounter.com/help/countjs-versions) page
+  into all three root pages.
 - **Vercel Web Analytics**: enabled per-project in the Vercel dashboard; the
   `/ _vercel/insights/script.js` snippet is the client-side half.
 
