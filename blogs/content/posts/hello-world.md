@@ -3,7 +3,7 @@ title: "My Hello World"
 date: 2026-07-02
 draft: false
 summary: "My first blog post — why I'm starting to write."
-tags: ["intro"]
+tags: ["meta", "writing"]
 ---
 
 ## Why write and why now?

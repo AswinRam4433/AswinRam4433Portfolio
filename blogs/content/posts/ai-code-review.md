@@ -3,7 +3,7 @@ title: "Reviewing and Using AI Code"
 date: 2026-09-29
 draft: false
 summary: "How do you ensure that the LLMs you are using for coding are actually doing a good job?"
-tags: ["intro"]
+tags: ["ai", "llm", "code-review"]
 ---
 
 ### After working with AI coding agents for a while now, this is a list of things which I feel human developers have to keep in mind while using these tools:
