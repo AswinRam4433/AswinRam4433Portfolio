@@ -136,6 +136,22 @@ Body goes here. Standard Markdown, fenced code blocks get copy buttons.
 
 ---
 
+## Home page projects
+
+The Projects section of `index.html` is rendered by `js/home.js` from
+`data/projects.json`, split into **Active** (hosted right now) and **Past**.
+
+- Active projects need a `live` URL; the card links there.
+- Past projects link to their blog post (`post`) if there is one, otherwise to
+  `repo`, otherwise to `paper`.
+- An entry marked `active` with an empty `live` is shown under Past, so a
+  card never points nowhere.
+- To take a project down from the VPS, change `status` to `"past"` and add a
+  `post` or `repo` link. No HTML edit needed.
+
+The same script fills "Latest writing" with the three newest posts from the
+Hugo posts feed (`/blogs/posts/index.json`).
+
 ## Adding to the Bookshelf
 
 The Bookshelf is for notes on things you've read — books, research papers,

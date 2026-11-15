@@ -45,8 +45,8 @@ rm -rf dist
 mkdir -p dist
 # Every .html at the repo root becomes a top-level page, so a new page ships
 # without editing this script or the workflow.
-cp ./*.html bazinga.png github-mark-white.png CNAME dist/
-cp -r css js dist/
+cp ./*.html bazinga.png github-mark-white.png og.png CNAME dist/
+cp -r css js data dist/
 cp -r blogs/public dist/blogs
 
 echo "→ Writing security headers"

@@ -1,0 +1,36 @@
+{
+  "_about": "Rendered into the Projects section of index.html by js/home.js. status is 'active' (hosted right now: the card links to `live`) or 'past' (the card links to `post` if there is a blog post, otherwise `repo`, otherwise `paper`). To take a project down from the VPS, change its status to 'past' and add a `post` or `repo` link. In `description`, *word* renders as emphasis.",
+  "projects": [
+    {
+      "name": "Mememaker",
+      "status": "active",
+      "description": "An AI meme maker that picks a real, well-known meme template for your situation and writes the captions, instead of generating an image from scratch.",
+      "tags": ["FastAPI", "LLMs", "AWS", "ARQ", "Alembic"],
+      "live": "https://mememaker.aswinnr.com",
+      "post": "/blogs/posts/mememaker/"
+    },
+    {
+      "name": "OEM Data Simulator",
+      "status": "past",
+      "description": "Realistic vehicle telemetry simulator for the Motorq Hackathon — emulates speed, fuel, GPS, and tire pressure across diverse driving scenarios using the SUMO engine and TraCI API.",
+      "note": "Plug in your traffic conditions, routes, and topography, hit go, and out comes realistic vehicle telemetry at whatever sampling frequency you need — no actual car required.",
+      "tags": ["Python", "SUMO", "TraCI", "Simulation"],
+      "repo": "https://github.com/Agilan20/Giant-Slayers-Backend"
+    },
+    {
+      "name": "AI Architectural Workflows",
+      "status": "past",
+      "description": "End-to-end AI system generating 2D floorplans and photorealistic interior designs from natural language prompts. Evaluated GPT-3.5, Llama 3, and Mistral. Published in *IEEE CVMI 2024*.",
+      "tags": ["LLMs", "Python", "IEEE", "Computer Vision"],
+      "paper": "https://ieeexplore.ieee.org/document/10782715"
+    },
+    {
+      "name": "Real-Time Quiz App",
+      "status": "past",
+      "description": "Microservice-based quiz platform with a Go backend, goroutines, JWT authentication, PostgreSQL storage, and WebSocket support for real-time updates. React/TypeScript frontend.",
+      "note": "At work, we toss around terms like Microservices, Kubernetes, gRPC, and Docker like they cost nothing — because a brilliant DevSecOps team quietly abstracts all this away. This project was a way for me to understand all this on a deeper level: turns out, making distributed systems not fall apart at 2 AM is genuinely hard work :)",
+      "tags": ["Go", "React", "WebSockets", "PostgreSQL"],
+      "repo": "https://github.com/AswinRam4433/QuizMe"
+    }
+  ]
+}

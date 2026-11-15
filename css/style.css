@@ -856,3 +856,19 @@ h1, h2, h3 {
 
   .shelf-count { margin-left: 0; flex-basis: 100%; }
 }
+
+/* ============================================================
+   HOME: ACTIVE / PAST PROJECTS, LATEST WRITING
+============================================================ */
+.projects-intro {
+  color: var(--text-muted);
+  margin: -1.5rem 0 1.75rem;
+  max-width: 52ch;
+}
+.projects-past-label { margin-top: 4.5rem; }
+.home-empty { color: var(--text-muted); grid-column: 1 / -1; }
+
+/* The blog-list rules above assume a full-page container; inside a home
+   section the section already supplies the width and padding. */
+.section-inner .blog-list { padding: 0; margin: 0; }
+.home-posts-more { margin-top: 2rem; }
