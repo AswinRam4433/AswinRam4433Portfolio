@@ -6,7 +6,7 @@
       "status": "active",
       "description": "An AI meme maker that picks a real, well-known meme template for your situation and writes the captions, instead of generating an image from scratch.",
       "tags": ["FastAPI", "LLMs", "AWS", "ARQ", "Alembic"],
-      "live": "",
+      "live": "https://mememaker.aswinnr.com",
       "post": "/blogs/posts/mememaker/"
     },
     {
