@@ -1,0 +1,42 @@
+/* Moss scheme — the Hugo blog's version of the root site's olive/moss palette
+   (see :root in /css/style.css). Blowfish reads these as bare "R, G, B"
+   triplets so Tailwind can apply alpha. Select it with colorScheme = "moss". */
+:root {
+  /* Warm stone. --color-neutral is the page background in light mode (and the
+     body text colour in dark mode), so it is the root site's --bg #F8F5F0. */
+  --color-neutral: 248, 245, 240;
+  --color-neutral-50: 240, 235, 225;   /* --bg-alt   #F0EBE1 */
+  --color-neutral-100: 234, 228, 216;  /* --bg-card  #EAE4D8 */
+  --color-neutral-200: 221, 216, 207;  /* --border   #DDD8CF */
+  --color-neutral-300: 196, 189, 179;
+  --color-neutral-400: 164, 153, 144;  /* --text-light #A49990 */
+  --color-neutral-500: 130, 122, 115;
+  --color-neutral-600: 107, 101, 96;   /* --text-muted #6B6560 */
+  --color-neutral-700: 62, 60, 56;
+  --color-neutral-800: 30, 31, 26;     /* dark-mode page background */
+  --color-neutral-900: 20, 21, 17;     /* light-mode body text, dark-mode surfaces */
+
+  /* Olive. 600 is the root site's --accent #5C6B2E. */
+  --color-primary-50: 244, 247, 234;
+  --color-primary-100: 232, 238, 214;
+  --color-primary-200: 212, 222, 184;  /* --accent-pale  #D4DEB8 */
+  --color-primary-300: 183, 199, 138;
+  --color-primary-400: 148, 166, 92;
+  --color-primary-500: 112, 130, 58;
+  --color-primary-600: 92, 107, 46;    /* --accent       #5C6B2E */
+  --color-primary-700: 74, 86, 36;     /* --accent-hover #4A5624 */
+  --color-primary-800: 61, 74, 31;     /* --accent-dark  #3D4A1F */
+  --color-primary-900: 44, 53, 22;
+
+  /* Terracotta, kept for the occasional secondary accent (category labels). */
+  --color-secondary-50: 252, 244, 238;
+  --color-secondary-100: 248, 230, 216;
+  --color-secondary-200: 242, 213, 192; /* #F2D5C0 */
+  --color-secondary-300: 230, 170, 130;
+  --color-secondary-400: 214, 128, 78;
+  --color-secondary-500: 196, 98, 45;   /* #C4622D */
+  --color-secondary-600: 163, 81, 31;   /* #A3511F */
+  --color-secondary-700: 139, 69, 19;   /* #8B4513 */
+  --color-secondary-800: 107, 54, 16;
+  --color-secondary-900: 74, 38, 12;
+}

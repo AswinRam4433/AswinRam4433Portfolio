@@ -1,6 +1,6 @@
-colorScheme = "blowfish"
-defaultAppearance = "dark"
-autoSwitchAppearance = true
+colorScheme = "moss"
+defaultAppearance = "light"
+autoSwitchAppearance = false
 
 enableSearch = true
 enableCodeCopy = true
